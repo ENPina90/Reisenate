@@ -1,0 +1,28 @@
+<h1> <%= @hotel.name %> </h1>
+
+<div class="container">
+  <div class="row justify-content-center">
+      <% @hotel.rooms.each do |room| %>
+        <div class="col-6">
+          <div class="card-trip">
+              <%= image_tag 'waldorf.jpg'%>
+              <div class="card-trip-infos">
+                <div>
+                  <h2> <%= room.name %> </h2>
+                  <% if room.special %>
+                    <p><%= room.special %></p>
+                  <% end %>
+                  <p>Free Cancelation</p>
+                  <p>No Deposit</p>
+                  <% room.amenities.each do |amenity| %>
+                    <p><%= amenity.name %></p>
+                  <% end %>
+                  <p><%= room.size %>sqm</p>
+                </div>
+                <h2 class="card-trip-pricing"> <%= room.price %>€ </h2>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
