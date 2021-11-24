@@ -3,7 +3,11 @@ class HotelsController < ApplicationController
   before_action :set_hotel, only: [:show]
 
   def index
-    @hotels = policy_scope(Hotel).order(created_at: :desc)
+    if params[:location].present?
+      @hotels = Hotel.search_by_city(params[:location])
+    else
+      @hotels = policy_scope(Hotel).order(created_at: :desc)
+    end
   end
 
   def show
