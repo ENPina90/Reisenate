@@ -1,3 +1,12 @@
 <h1>Pages#home</h1>
 <p>Find me in app/views/pages/home.html.erb</p>
 <h1>Reisetopia</h1>
+<%= form_tag hotels_path, method: :get do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Find a hotel"
+  %>
+  <%= submit_tag "Search", class: "btn btn-primary" %>
+<% end %>
+<%= link_to 'book now', new_booking_path  %>
