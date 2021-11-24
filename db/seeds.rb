@@ -9,7 +9,7 @@
 cities = %w[Rome London Paris Madrid Berlin]
 hotels = ['Hotel de Rome', 'Adlon', 'Ritz Carlton', 'Waldrof Astoria', 'Grand Hyatt', 'Hilton', 'Regent', 'Das Stu', 'Holiday Inn', 'Westin Grand']
 brands = ['Rocco Forte', 'Kempinsky', 'Ritz', 'Waldorf', 'Hyatt', 'Hilton', 'Regent', 'S/O', 'Holiday Inn', 'Marriot']
-addresses = ['Behrenstraße 37, 10117 Berlin', 'Unter den Linden 77, 10117 Berlin', 'Potsdamer Platz 3, 10785 Berlin', 'Hardenbergstraße 28, 10623 Berlin', 'Marlene-Dietrich-Platz 2, 10785 Berlin', 'Mohrenstraße 30, 10117 Berlin', 'Charlotte And Fritz, Charlottenstraße 49, 10117 Berlin', 'Drakestraße 1, 10787 Berlin', 'Theanolte-Bähnisch-Straße 2, 10178 Berlin', 'Friedrichstraße 158, 10117 Berlin']
+addresses = ['Behrenstraße 37, 10117 Berlin, Germany', 'Unter den Linden 77, 10117 Berlin, Germany', 'Potsdamer Platz 3, 10785 Berlin, Germany', 'Hardenbergstraße 28, 10623 Berlin, Germany', 'Marlene-Dietrich-Platz 2, 10785 Berlin, Germany', 'Mohrenstraße 30, 10117 Berlin, Germany', 'Charlotte And Fritz, Charlottenstraße 49, 10117 Berlin, Germany', 'Drakestraße 1, 10787 Berlin, Germany', 'Theanolte-Bähnisch-Straße 2, 10178 Berlin, Germany', 'Friedrichstraße 158, 10117 Berlin, Germany']
 amenities = ['Great View', 'Jacuzzi', 'Full Bar', 'Servant', 'Kitchen', 'Balcony', 'Bath', 'Foot Message']
 benefits = ['Early Check-in', 'Free Breakfast', '$500 Hotel Credit', 'Free Third Night']
 adjectives = %w[Presidential Royal Deluxe Business King's Executive Pauper Dictator's Emperor's]

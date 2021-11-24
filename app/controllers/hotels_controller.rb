@@ -3,10 +3,17 @@ class HotelsController < ApplicationController
   before_action :set_hotel, only: [:show]
 
   def index
-    if params[:location].present?
-      @hotels = Hotel.search_by_city(params[:location])
+    if params[:query].present?
+      @hotels = Hotel.search_by_city(params[:query])
     else
       @hotels = policy_scope(Hotel).order(created_at: :desc)
+    end
+
+    @markers = @hotels.geocoded.map do |flat|
+      {
+        lat: flat.latitude,
+        lng: flat.longitude
+      }
     end
   end
 
