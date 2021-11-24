@@ -1,36 +1,15 @@
 <h1>Reisetopia Hotels</h1>
 
-<%= simple_form_for new_booking_path do |f| %>
-  <%= f.input :address,
-              input_html: { data: { geocoder_target: "address" } },
-              wrapper_html: { data: { controller: "geocoder",
-geocoder_api_key_value: ENV['MAPBOX_API_KEY'] } } %>
-
-  <%= f.button :submit, class: "btn btn-primary" %>
-<% end %>
-
-<%= form_tag hotels_path, data: { controller: "geocoder", geocoder_api_key_value: ENV['MAPBOX_API_KEY'] }, method: :get do %>
-  <%= text_field_tag :address,
-    params[:address],
-    data: { geocoder_target: "address" },
-    class: "form-control",
-    placeholder: "Find a hotel"
-  %>
-  <%= date_field_tag :date, params[:date],
-    class: "form-control" %>
-  <%= submit_tag "Search", class: "btn btn-primary" %>
-<% end %>
-
-<%= form_tag hotels_path, method: :get do %>
+<%= form_tag hotels_path, data: { controller: "geocoder", geocoder_api_key_value: ENV['MAPBOX_API_KEY'] }, class: "form-inline", method: :get do %>
   <%= text_field_tag :query,
     params[:query],
-    class: "form-control",
+    data: { geocoder_target: "query" },
+    class: "d-none",
     placeholder: "Find a hotel"
   %>
-  <%= date_field_tag :date, params[:date],
-    class: "form-control" %>
   <%= submit_tag "Search", class: "btn btn-primary" %>
-  <% end %>
+<% end %>
+
 
 <div class="container">
   <div class="row">
