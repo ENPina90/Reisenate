@@ -12,12 +12,17 @@
 
 
 <div class="container">
-  <div class="row">
+  <div class="row row-flex">
       <% @hotels.each do |hotel| %>
         <div class="col-12 col-sm-4 mb-4">
           <%= link_to hotel_path(hotel), class:'text-decoration-none' do %>
             <div class="card-trip">
-              <%= image_tag 'waldorf.jpg'%>
+              <% if hotel.photos.attached? %>
+                <% imgr = hotel.photos.first.key %>
+                <%= cl_image_tag imgr, height: 300, width: 400, crop: :fill %>
+              <% else %>
+                <%= image_tag 'waldorf.jpg'%>
+              <% end %>
               <div class="card-trip-infos">
                 <div>
                   <h2> <%= hotel.name %> </h2>

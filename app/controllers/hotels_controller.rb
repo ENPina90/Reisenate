@@ -1,5 +1,5 @@
 class HotelsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index, :show]
+  skip_before_action :authenticate_user!, only: [:new, :create, :index, :show]
   before_action :set_hotel, only: [:show]
 
   def index
@@ -20,6 +20,22 @@ class HotelsController < ApplicationController
   def show
   end
 
+  def new
+    @hotel = Hotel.new
+  end
+
+  def create
+    @hotel = Hotel.new(hotel_params)
+    if @hotel.save
+      flash[:success] = "Object successfully created"
+      redirect_to @hotel
+    else
+      flash[:error] = "Something went wrong"
+      render 'new'
+    end
+  end
+
+
   private
 
   def set_hotel
@@ -27,7 +43,7 @@ class HotelsController < ApplicationController
   end
 
   def hotel_params
-    params.require(:hotel).permit(:name, :city, :address, :brand, :review, :review_url)
+    params.require(:hotel).permit(:name, :address, :brand, photos: [])
   end
 
 end

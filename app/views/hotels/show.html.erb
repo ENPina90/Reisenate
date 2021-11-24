@@ -1,6 +1,43 @@
 <h1> <%= @hotel.name %> </h1>
 
 <div class="container">
+  <div class="row">
+    <div class="col-8 mx-auto my-5">
+      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+          <% if @hotel.photos.attached? %>
+            <% @hotel.photos.each_with_index do |photo, index| %>
+              <% if index == 0 %>
+                <div class="carousel-item active">
+              <% else %>
+                <div class="carousel-item">
+              <% end %>
+                  <%= cl_image_tag photo.key, height: 400, width: 400, class: "d-block w-100" %>
+              </div>
+              <% end %>
+            <% else %>
+              <div class="carousel-item active">
+                <%= image_tag 'waldorf.jpg', class: "d-block w-100"%>
+              </div>
+              <div class="carousel-item">
+                <%= image_tag 'adlon2.jpg', class: "d-block w-100"%>
+              </div>
+              <div class="carousel-item">
+                <%= image_tag 'ritz3.jpg', class: "d-block w-100"%>
+              </div>
+            <% end %>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
   <div class="row justify-content-center">
       <% @hotel.rooms.each do |room| %>
         <div class="col-6">

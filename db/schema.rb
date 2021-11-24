@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_18_001240) do
+ActiveRecord::Schema.define(version: 2021_11_24_172014) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -100,6 +100,15 @@ ActiveRecord::Schema.define(version: 2021_11_18_001240) do
     t.index ["city_id"], name: "index_hotels_on_city_id"
   end
 
+  create_table "reviews", force: :cascade do |t|
+    t.string "title"
+    t.text "content"
+    t.bigint "hotel_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["hotel_id"], name: "index_reviews_on_hotel_id"
+  end
+
   create_table "room_amenities", force: :cascade do |t|
     t.bigint "room_id", null: false
     t.bigint "amenity_id", null: false
@@ -144,6 +153,7 @@ ActiveRecord::Schema.define(version: 2021_11_18_001240) do
   add_foreign_key "hotel_benefits", "benefits"
   add_foreign_key "hotel_benefits", "rooms"
   add_foreign_key "hotels", "cities"
+  add_foreign_key "reviews", "hotels"
   add_foreign_key "room_amenities", "amenities"
   add_foreign_key "room_amenities", "rooms"
   add_foreign_key "rooms", "hotels"

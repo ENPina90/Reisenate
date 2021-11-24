@@ -1,0 +1,12 @@
+<h1>Admin add hotel to Database</h1>
+<%= simple_form_for @hotel do |f| %>
+  <%= f.input :name %>
+  <%= f.input :brand %>
+  <%= f.input :address,
+              input_html: { data: { geocoder_target: "query" },
+              class: "d-none" },
+              wrapper_html: { data: { controller: "geocoder",
+geocoder_api_key_value: ENV['MAPBOX_API_KEY'] } } %>
+  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+  <%= f.button :submit, class: "btn btn-primary" %>
+<% end %>
